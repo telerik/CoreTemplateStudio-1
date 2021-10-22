@@ -10,6 +10,7 @@ using Microsoft.Templates.Core;
 using Microsoft.Templates.Core.Composition;
 using Microsoft.Templates.Core.Resources;
 using Microsoft.Templates.Core.Templates;
+using Newtonsoft.Json;
 
 namespace Microsoft.Templates.Core.Gen
 {
@@ -292,11 +293,25 @@ namespace Microsoft.Templates.Core.Gen
             projectGenInfo?.Parameters.Add(GenParams.BackEndFramework, userSelection.Context.BackEndFramework ?? string.Empty);
             projectGenInfo?.Parameters.Add(GenParams.Platform, userSelection.Context.Platform);
 
+            // TODO: Again, these make a lot more sense to be a 3rd party property bag,
+            // but the userSelection.Context.PropertyBag has custom prefix "wts.generation.".
+            // Also maybe validation?
+            projectGenInfo?.Parameters.Add(GenParams.Theme, userSelection.Context.Theme);
+            projectGenInfo?.Parameters.Add(GenParams.IsTrial, PrimitiveScriptValue(userSelection.Context.IsTrial));
+            projectGenInfo?.Parameters.Add(GenParams.TargetDotnetFramework, PrimitiveScriptValue(userSelection.Context.TargetDotnetFramework));
+
             foreach (var property in userSelection.Context.PropertyBag)
             {
                 projectGenInfo?.Parameters.Add($"{GenParams.GenerationPropertiesPrefix}.{property.Key.ToLowerInvariant()}", property.Value);
             }
         }
+
+        /// <summary>
+        /// Converts simple value types to strings.
+        /// Booleans are converted to JavaScript-like lowercase 'true' and 'false'.
+        /// Enums are also converted, taking into consideration their <seealso cref="System.Runtime.Serialization.EnumMemberAttribute.Value"/>.
+        /// </summary>
+        private static string PrimitiveScriptValue<T>(T obj) => JsonConvert.SerializeObject(obj).Trim('"');
 
         private static void AddCasingParams(string name, ITemplateInfo template, GenInfo genInfo)
         {

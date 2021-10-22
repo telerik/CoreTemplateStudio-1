@@ -22,6 +22,12 @@ namespace Microsoft.Templates.Core.Gen
 
         public string Language { get; private set; }
 
+        public string Theme { get; set; }
+
+        public bool IsTrial { get; set; }
+
+        public DotnetFramework TargetDotnetFramework { get; set; }
+
         public UserSelectionContext(string language, string platform)
         {
             if (string.IsNullOrWhiteSpace(language))

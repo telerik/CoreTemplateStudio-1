@@ -26,6 +26,13 @@ namespace Microsoft.Templates.Cli.Models
         [Required]
         public string BackendFramework { get; set; }
 
+        // TODO: Move to something like the PropertyBag, except for let us define "com.telerik.vscode/blazor/theme" keys etc, instead the "wts." prefix.
+        public string Theme { get; set; }
+
+        public bool IsTrial { get; set; }
+
+        public DotnetFramework TargetDotnetFramework { get; set; }
+
         [Required]
         public string Language { get; set; }
 
@@ -48,6 +55,10 @@ namespace Microsoft.Templates.Cli.Models
                 ProjectType = ProjectType,
                 FrontEndFramework = FrontendFramework,
                 BackEndFramework = BackendFramework,
+
+                Theme = Theme,
+                IsTrial = IsTrial,
+                TargetDotnetFramework = TargetDotnetFramework,
             };
 
             var userSelection = new UserSelection(context);
