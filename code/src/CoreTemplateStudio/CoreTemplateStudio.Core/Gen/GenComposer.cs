@@ -169,6 +169,9 @@ namespace Microsoft.Templates.Core.Gen
                 new QueryableProperty("testing", string.Join("|", userSelection.Testing.Select(p => p.TemplateId))),
             };
 
+            string dotnet = userSelection.Context.TargetDotnetFramework.ToString();
+            context.Add(new QueryableProperty("dotnet", dotnet));
+
             if (!string.IsNullOrEmpty(userSelection.Context.FrontEndFramework))
             {
                 context.Add(new QueryableProperty("frontendframework", userSelection.Context.FrontEndFramework));

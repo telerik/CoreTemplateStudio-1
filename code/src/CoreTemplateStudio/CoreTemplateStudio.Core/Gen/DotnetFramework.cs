@@ -12,5 +12,8 @@ namespace Microsoft.Templates.Core.Gen
 
         [EnumMember(Value = ".NET 5.0")]
         DotNet50,
+
+        [EnumMember(Value = ".NET 6.0")]
+        DotNet60,
     }
 }
