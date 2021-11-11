@@ -31,7 +31,7 @@ namespace Microsoft.Templates.Cli.Models
 
         public bool IsTrial { get; set; }
 
-        public DotnetFramework TargetDotnetFramework { get; set; }
+        public DotnetFramework? TargetDotnetFramework { get; set; }
 
         [Required]
         public string Language { get; set; }

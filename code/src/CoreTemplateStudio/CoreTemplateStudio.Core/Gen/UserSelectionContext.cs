@@ -26,7 +26,7 @@ namespace Microsoft.Templates.Core.Gen
 
         public bool IsTrial { get; set; }
 
-        public DotnetFramework TargetDotnetFramework { get; set; }
+        public DotnetFramework? TargetDotnetFramework { get; set; }
 
         public UserSelectionContext(string language, string platform)
         {
