@@ -286,6 +286,11 @@ namespace Microsoft.Templates.Core.Gen
             genInfo?.Parameters.Add(GenParams.RootNamespace, ns);
             genInfo?.Parameters.Add(GenParams.ProjectName, GenContext.Current.ProjectName);
             genInfo?.Parameters.Add(GenParams.HomePageName, userSelection.HomeName);
+
+            // TODO: Again, these make a lot more sense to be a 3rd party property bag,
+            // but the userSelection.Context.PropertyBag has custom prefix "wts.generation.".
+            // Also maybe validation?
+            genInfo?.Parameters.Add(GenParams.Theme, userSelection.Context.Theme);
         }
 
         private static void AddProjectParams(GenInfo projectGenInfo, UserSelection userSelection)
@@ -301,7 +306,6 @@ namespace Microsoft.Templates.Core.Gen
             // TODO: Again, these make a lot more sense to be a 3rd party property bag,
             // but the userSelection.Context.PropertyBag has custom prefix "wts.generation.".
             // Also maybe validation?
-            projectGenInfo?.Parameters.Add(GenParams.Theme, userSelection.Context.Theme);
             projectGenInfo?.Parameters.Add(GenParams.IsTrial, PrimitiveScriptValue(userSelection.Context.IsTrial));
             projectGenInfo?.Parameters.Add(GenParams.TargetDotnetFramework, PrimitiveScriptValue(userSelection.Context.TargetDotnetFramework));
 
