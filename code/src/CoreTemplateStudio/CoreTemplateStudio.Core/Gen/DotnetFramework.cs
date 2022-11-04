@@ -15,5 +15,8 @@ namespace Microsoft.Templates.Core.Gen
 
         [EnumMember(Value = ".NET 6.0")]
         DotNet60,
+
+        [EnumMember(Value = ".NET 7.0")]
+        DotNet70,
     }
 }
