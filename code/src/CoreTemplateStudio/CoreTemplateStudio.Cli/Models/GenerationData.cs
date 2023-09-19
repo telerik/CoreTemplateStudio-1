@@ -29,6 +29,8 @@ namespace Microsoft.Templates.Cli.Models
         // TODO: Move to something like the PropertyBag, except for let us define "com.telerik.vscode/blazor/theme" keys etc, instead the "wts." prefix.
         public string Theme { get; set; }
 
+        public bool LastKnownGood { get; set; }
+
         public bool IsTrial { get; set; }
 
         public DotnetFramework? TargetDotnetFramework { get; set; }
@@ -57,6 +59,7 @@ namespace Microsoft.Templates.Cli.Models
                 BackEndFramework = BackendFramework,
 
                 Theme = Theme,
+                LastKnownGood = LastKnownGood,
                 IsTrial = IsTrial,
                 TargetDotnetFramework = TargetDotnetFramework,
             };

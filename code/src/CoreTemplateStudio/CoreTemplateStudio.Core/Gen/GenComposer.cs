@@ -291,6 +291,7 @@ namespace Microsoft.Templates.Core.Gen
             // but the userSelection.Context.PropertyBag has custom prefix "wts.generation.".
             // Also maybe validation?
             genInfo?.Parameters.Add(GenParams.Theme, userSelection.Context.Theme);
+            genInfo?.Parameters.Add(GenParams.LastKnownGood, userSelection.Context.LastKnownGood ? "true" : "false");
         }
 
         private static void AddProjectParams(GenInfo projectGenInfo, UserSelection userSelection)

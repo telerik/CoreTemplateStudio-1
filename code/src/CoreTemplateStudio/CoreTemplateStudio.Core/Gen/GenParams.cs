@@ -21,6 +21,9 @@ namespace Microsoft.Templates.Core.Gen
         public const string ProjectName = "wts.projectName";
 
         public const string Theme = "wts.theme";
+
+        public const string LastKnownGood = "wts.lastKnownGood";
+
         public const string IsTrial = "wts.isTrial";
         public const string TargetDotnetFramework = "wts.targetDotnetFramework";
     }

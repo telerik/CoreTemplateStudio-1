@@ -24,6 +24,8 @@ namespace Microsoft.Templates.Core.Gen
 
         public string Theme { get; set; }
 
+        public bool LastKnownGood { get; set; }
+
         public bool IsTrial { get; set; }
 
         public DotnetFramework? TargetDotnetFramework { get; set; }
