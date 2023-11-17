@@ -18,5 +18,8 @@ namespace Microsoft.Templates.Core.Gen
 
         [EnumMember(Value = ".NET 7.0")]
         DotNet70,
+
+        [EnumMember(Value = ".NET 8.0")]
+        DotNet80,
     }
 }
